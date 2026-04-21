@@ -1,0 +1,5 @@
+{
+    "logos": ["l.png", "l2.png", "l3.png", "image.png"],
+    "banners": ["b1.png", "b2.png", "b3.png", "b4.png", "b5.png", "b6.png"],
+    "gfx": ["g1.png", "g2.png", "g3.png"]
+}

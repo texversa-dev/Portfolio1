@@ -44,32 +44,28 @@
     </div>
 
 <script>
+// Load images from JSON file
+fetch("assets/images/images.json")
+    .then(res => res.json())
+    .then(data => {
+        loadImages("logos", data.logos);
+        loadImages("banners", data.banners);
+        loadImages("gfx", data.gfx);
+    });
+
+function loadImages(type, files) {
+    const gallery = document.getElementById(type + "-gallery");
+    files.forEach(file => {
+        const img = document.createElement("img");
+        img.src = `assets/images/${type}/${file}`;
+        gallery.appendChild(img);
+    });
+}
+
 function showTab(tab) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById(tab).classList.add('active');
 }
-
-// Auto-load images from folders
-const folders = {
-    "logos": "assets/images/logos",
-    "banners": "assets/images/banners",
-    "gfx": "assets/images/gfx"
-};
-
-Object.keys(folders).forEach(type => {
-    fetch(folders[type])
-        .then(res => res.text())
-        .then(text => {
-            const gallery = document.getElementById(type + "-gallery");
-            const files = [...text.matchAll(/href="([^"]+\.(png|jpg|jpeg|gif))"/g)];
-
-            files.forEach(match => {
-                const img = document.createElement("img");
-                img.src = `${folders[type]}/${match[1]}`;
-                gallery.appendChild(img);
-            });
-        });
-});
 </script>
 
 </body>
