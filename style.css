@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://i.imgur.com/yourbg.png') center/cover fixed;
+    backdrop-filter: blur(6px);
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(40,40,40,0.6);
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.links a {
+    margin: 0 10px;
+    padding: 10px 16px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+}
+
+.links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.1);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tabs button:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.tab {
+    display: none;
+}
+
+.tab.active {
+    display: block;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}

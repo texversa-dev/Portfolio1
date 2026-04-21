@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keshawn Portfolio</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1>Keshawn’s Portfolio</h1>
+            <p>Logos • Banners • GFX • UI Design</p>
+
+            <div class="links">
+                <a href="https://discord.com/users/YOURID" target="_blank">Discord</a>
+                <a href="https://www.roblox.com/users/YOURID/profile" target="_blank">Roblox</a>
+                <a href="#" target="_blank">Portfolio</a>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button onclick="showTab('logos')">Logos</button>
+            <button onclick="showTab('banners')">Banners</button>
+            <button onclick="showTab('gfx')">GFX</button>
+        </nav>
+
+        <section id="logos" class="tab active">
+            <h2>Logos</h2>
+            <div class="gallery" id="logos-gallery"></div>
+        </section>
+
+        <section id="banners" class="tab">
+            <h2>Banners</h2>
+            <div class="gallery" id="banners-gallery"></div>
+        </section>
+
+        <section id="gfx" class="tab">
+            <h2>GFX</h2>
+            <div class="gallery" id="gfx-gallery"></div>
+        </section>
+
+    </div>
+
+<script>
+function showTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(tab).classList.add('active');
+}
+
+// Auto-load images from folders
+const folders = {
+    "logos": "assets/images/logos",
+    "banners": "assets/images/banners",
+    "gfx": "assets/images/gfx"
+};
+
+Object.keys(folders).forEach(type => {
+    fetch(folders[type])
+        .then(res => res.text())
+        .then(text => {
+            const gallery = document.getElementById(type + "-gallery");
+            const files = [...text.matchAll(/href="([^"]+\.(png|jpg|jpeg|gif))"/g)];
+
+            files.forEach(match => {
+                const img = document.createElement("img");
+                img.src = `${folders[type]}/${match[1]}`;
+                gallery.appendChild(img);
+            });
+        });
+});
+</script>
+
+</body>
+</html>
