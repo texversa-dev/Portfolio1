@@ -1,24 +1,28 @@
+/* Entire page background */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: rgba(60, 60, 60, 0.6); /* grey transparent */
-    backdrop-filter: blur(6px);
+    background: #2e2e2e; /* solid grey */
+    color: white;
 }
 
+/* Main container */
 .container {
     max-width: 900px;
     margin: 40px auto;
-    background: rgba(30, 30, 30, 0.6);
+    background: #3a3a3a; /* solid grey container */
     padding: 30px;
     border-radius: 20px;
     color: white;
 }
 
+/* Header */
 header {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Links */
 .links a {
     margin: 0 10px;
     padding: 10px 16px;
@@ -33,6 +37,7 @@ header {
     background: rgba(255,255,255,0.2);
 }
 
+/* Tabs */
 .tabs {
     display: flex;
     justify-content: center;
@@ -54,6 +59,7 @@ header {
     background: rgba(255,255,255,0.2);
 }
 
+/* Tab content */
 .tab {
     display: none;
 }
@@ -62,6 +68,7 @@ header {
     display: block;
 }
 
+/* Image gallery */
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
