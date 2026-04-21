@@ -1,14 +1,14 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: url('https://i.imgur.com/yourbg.png') center/cover fixed;
+    background: rgba(60, 60, 60, 0.6); /* grey transparent */
     backdrop-filter: blur(6px);
 }
 
 .container {
     max-width: 900px;
     margin: 40px auto;
-    background: rgba(40,40,40,0.6);
+    background: rgba(30, 30, 30, 0.6);
     padding: 30px;
     border-radius: 20px;
     color: white;
