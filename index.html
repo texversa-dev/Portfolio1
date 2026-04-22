@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <title>Tex's Portfolio</title>
 
+    <!-- Link Preview -->
     <meta property="og:title" content="Tex's Portfolio">
     <meta property="og:description" content="Logos • Banners • GFX by Texversal">
-    <meta property="og:image" content="https://cdn.discordapp.com/attachments/1473536417014612113/1496300963265249381/image.png?ex=69e9625d&is=69e810dd&hm=b897e18549007b18f43a461994f94e8798fed9dd5bf254583b3ec870ace6d99d&">
+    <meta property="og:image" content="https://texversa-dev.github.io/assets/images/banners/b1.png">
     <meta property="og:url" content="https://texversa-dev.github.io">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -18,19 +19,23 @@
 
         <header>
             <h1>Tex's Portfolio</h1>
-            <p>Logos • Banners • GFX </p>
-            <p>Sigma? </p>
+            <p>Logos • Banners • GFX</p>
+            <p>Sigma?</p>
 
             <div class="links">
                 <a href="https://discord.com/users/758739147443273789" target="_blank">Discord</a>
                 <a href="https://www.roblox.com/users/1515085030/profile" target="_blank">Roblox</a>
             </div>
+
+            <!-- ⭐ Visitor Counter -->
+            <div id="view-counter">👁️ Loading...</div>
         </header>
 
         <nav class="tabs">
             <button onclick="showTab('logos')">Logos</button>
             <button onclick="showTab('banners')">Banners</button>
             <button onclick="showTab('gfx')">GFX</button>
+            <button onclick="showTab('ranks')">Past Ranks</button>
         </nav>
 
         <section id="logos" class="tab active">
@@ -48,10 +53,28 @@
             <div class="gallery" id="gfx-gallery"></div>
         </section>
 
+        <!-- ⭐ Past Ranks Tab -->
+        <section id="ranks" class="tab">
+            <h2>Past Ranks</h2>
+
+            <div class="ranks-content">
+                <p><strong>Server:</strong> <a href="https://discord.gg/YOURINVITE" target="_blank">Example Server</a></p>
+                <p><strong>Rank:</strong> Moderator</p>
+                <p><strong>Notes:</strong> Helped manage tickets and events.</p>
+
+                <hr>
+
+                <p><strong>Server:</strong> <a href="https://discord.gg/YOURINVITE2" target="_blank">Another Server</a></p>
+                <p><strong>Rank:</strong> Admin</p>
+                <p><strong>Notes:</strong> Oversaw staff team and community operations.</p>
+            </div>
+        </section>
+
     </div>
 
 <script>
 
+// Load images with cache-busting
 fetch("assets/images/images.json?v=" + Date.now())
     .then(res => res.json())
     .then(data => {
@@ -73,6 +96,14 @@ function showTab(tab) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     document.getElementById(tab).classList.add('active');
 }
+
+// ⭐ Visitor Counter
+fetch("https://api.countapi.xyz/hit/texversal/portfolio")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("view-counter").innerHTML = "👁️ " + data.value;
+  });
+
 </script>
 
 </body>
