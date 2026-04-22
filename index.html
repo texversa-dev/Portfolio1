@@ -97,8 +97,8 @@ function showTab(tab) {
     document.getElementById(tab).classList.add('active');
 }
 
-// ⭐ Visitor Counter
-fetch("https://api.countapi.xyz/hit/texversal/portfolio")
+// ⭐ WORKING Visitor Counter (no account needed)
+fetch("https://api.countapi.xyz/hit/texv-portfolio/views")
   .then(res => res.json())
   .then(data => {
     document.getElementById("view-counter").innerHTML = "👁️ " + data.value;
